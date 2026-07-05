@@ -3,7 +3,7 @@
 -- Bootstrap on any new box (no root needed):
 --   curl -LO https://github.com/neovim/neovim/releases/latest/download/nvim-linux-x86_64.tar.gz
 --   tar xzf nvim-linux-x86_64.tar.gz && export PATH="$PWD/nvim-linux-x86_64/bin:$PATH"
---   mkdir -p ~/.config/nvim && curl -fsSL https://github.com/tristanalderson/subtract-first-neovim/blob/f42c76cbd31a107cb74a25981730a982d6cbf223/init.lua -o ~/.config/nvim/init.lua
+--   mkdir -p ~/.config/nvim && curl -fsSL https://raw.githubusercontent.com/tristanalderson/subtract-first-neovim/refs/heads/main/init.lua -o ~/.config/nvim/init.lua
 
 vim.g.mapleader = ' '
 
