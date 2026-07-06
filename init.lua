@@ -51,17 +51,7 @@ for i = 1, 4 do
 end
 
 -- Treesitter: highlighting for your stack + the textobjects you use daily
-require('nvim-treesitter').install({vim.g.mapleader = ' '
-
--- Options: few, and close to defaults, so bare `vi` on a locked-down box still feels like home
-vim.o.number = true
-vim.o.relativenumber = true
-vim.o.signcolumn = 'yes'
-vim.o.ignorecase = true
-vim.o.smartcase = true
-vim.o.expandtab = true
-vim.o.shiftwidth = 4
-vim.o.undofile = true
+require('nvim-treesitter').install({
   'rust', 'go', 'gomod', 'c', 'cpp', 'python', 'bash', 'lua', 'toml', 'yaml', 'json', 'markdown',
 })
 vim.api.nvim_create_autocmd('FileType', {
