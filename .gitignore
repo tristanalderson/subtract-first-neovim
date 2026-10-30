@@ -1,1 +1,2 @@
 *.json
+!nvim-pack-lock.json
