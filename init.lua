@@ -16,6 +16,19 @@ vim.g.mapleader = ' '
 
 local function has(bin) return vim.fn.executable(bin) == 1 end
 
+-- Workaround: nvim-treesitter & textobjects switched their default branches to
+-- 'main' (which deprecates configs.lua). Force them to track 'master'.
+vim.api.nvim_create_autocmd('PackChanged', {
+  callback = function(ev)
+    local name = ev.data.spec.name
+    if (name == 'nvim-treesitter' or name == 'nvim-treesitter-textobjects')
+       and (ev.data.kind == 'install' or ev.data.kind == 'update') then
+      vim.system({ 'git', 'fetch', 'origin', 'master' }, { cwd = ev.data.path }):wait()
+      vim.system({ 'git', 'checkout', 'master' }, { cwd = ev.data.path }):wait()
+    end
+  end,
+})
+
 vim.pack.add({
   'https://github.com/ibhagwan/fzf-lua',                        -- nav (needs fzf+rg; native fallback below)
   'https://github.com/nvim-lua/plenary.nvim',                   -- harpoon dep
